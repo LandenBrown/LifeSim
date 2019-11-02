@@ -316,7 +316,7 @@ def showActionMenu(character):
                                             gotjob = random.randint(1, 3)
                                             if gotjob == 3:
                                                 print("""The company has decided not to move forward in the interview process. 
-                                                Good luck on future attempts""")
+                                                Good luck on future attempts pal""")
                                             else:
                                                 print(
                                                     "Congratulations! They would like to offer you the job making " + str(

@@ -4,7 +4,9 @@
     <bookmark url="file://$PROJECT_DIR$/src/TestingTk.py" line="15" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="480e8d0e-18c3-44b5-ad93-dd9e771617c0" name="Default Changelist" comment="" />
+    <list default="true" id="480e8d0e-18c3-44b5-ad93-dd9e771617c0" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/Main.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +18,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-242">
-              <caret line="261" column="39" selection-start-line="261" selection-start-column="39" selection-end-line="261" selection-end-column="39" />
+            <state relative-caret-position="596">
+              <caret line="318" column="80" selection-start-line="318" selection-start-column="80" selection-end-line="318" selection-end-column="80" />
               <folding>
                 <element signature="e#0#28#0" expanded="true" />
               </folding>
@@ -129,7 +131,7 @@
     </findStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Life-Simulator" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -510,8 +512,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="261" column="39" selection-start-line="261" selection-start-column="39" selection-end-line="261" selection-end-column="39" />
+        <state relative-caret-position="596">
+          <caret line="318" column="80" selection-start-line="318" selection-start-column="80" selection-end-line="318" selection-end-column="80" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

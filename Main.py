@@ -9,6 +9,7 @@ nextTurn = "d"
 eventCD = 0
 
 
+
 def idleTime():
     time.sleep(1)
 
@@ -80,6 +81,7 @@ def checkEventStatus(x):
 def showActionMenu(character):
     character.checkAge()
     pinput = "some sheet"
+    educationchoices = None
     if character.job == None:
         jobstatus = "explore job opportunities"
     else:
@@ -192,56 +194,25 @@ def showActionMenu(character):
                       + " 4." + openjobs[3].name + " 5." + openjobs[4].name)
                     print("Enter 1-5 to view more about these jobs, enter 'exit' to exit")
                     jobinput = input()
-                    if jobinput == "1":
-                        print("A " + openjobs[0].name + " requires:")
-                        if isinstance(openjobs[0].educationRequired, str):
-                            print("A " + openjobs[0].educationRequired)
-                        if openjobs[0].intelligenceRequired != None:
-                            print("Intelligence: " + str(openjobs[0].intelligenceRequired))
-                        if openjobs[0].looksRequired != None:
-                            print("Looks: " + str(openjobs[0].looksRequired))
-                        if openjobs[0].healthRequired != None:
-                            print("Health: " + str(openjobs[0].healthRequired))
-                        if character.education == openjobs[0].educationRequired:
+                    def jobDecision(x):
+                        print("A " + openjobs[x].name + " requires:")
+                        if isinstance(openjobs[x].educationRequired, str):
+                            print("A " + openjobs[x].educationRequired)
+                        if openjobs[x].intelligenceRequired != None:
+                            print("Intelligence: " + str(openjobs[x].intelligenceRequired))
+                        if openjobs[x].looksRequired != None:
+                            print("Looks: " + str(openjobs[x].looksRequired))
+                        if openjobs[x].healthRequired != None:
+                            print("Health: " + str(openjobs[x].healthRequired))
+                        if character.education == openjobs[x].educationRequired:
                             debugCode("Passed education requirement")
-                            if character.intelligence >= openjobs[0].intelligenceRequired:
+                            idleTime()
+                            if character.intelligence >= openjobs[x].intelligenceRequired:
                                 debugCode("Passed intelligence requirement")
-                                if character.health >= openjobs[0].healthRequired:
+                                idleTime()
+                                if character.health >= openjobs[x].healthRequired:
                                     debugCode("Passed health requirement")
-                                    if character.looks >= openjobs[0].looksRequired:
-                                        debugCode("Passed looks requirement")
-                                        print("You qualify, would you like to apply for this job? Type 'yes' or 'no'")
-                                        applyinput = input()
-                                        if applyinput == "yes":
-                                            gotjob = random.randint(1, 3)
-                                            if gotjob == 3:
-                                                print("""The company has decided not to move forward in the interview process. 
-                                                Good luck on future attempts""")
-                                            else:
-                                                print(
-                                                    "Congratulations! They would like to offer you the job making " + str(
-                                                        openjobs[0].salary * 2) + " a year!")
-                                                character.job = openjobs[0]
-                                                character.timeAtJob = 0
-                                        if applyinput == "no":
-                                            print("You chose not to apply")
-                    if jobinput == "2":
-                        print("A " + openjobs[1].name + " requires:")
-                        if isinstance(openjobs[1].educationRequired, str):
-                            print("A " + openjobs[1].educationRequired)
-                        if openjobs[1].intelligenceRequired != None:
-                            print("Intelligence: " + str(openjobs[1].intelligenceRequired))
-                        if openjobs[1].looksRequired != None:
-                            print("Looks: " + str(openjobs[1].looksRequired))
-                        if openjobs[1].healthRequired != None:
-                            print("Health: " + str(openjobs[1].healthRequired))
-                        if character.education == openjobs[1].educationRequired:
-                            debugCode("Passed education requirement")
-                            if character.intelligence >= openjobs[1].intelligenceRequired:
-                                debugCode("Passed intelligence requirement")
-                                if character.health >= openjobs[1].healthRequired:
-                                    debugCode("Passed health requirement")
-                                    if character.looks >= openjobs[1].looksRequired:
+                                    if character.looks >= openjobs[x].looksRequired:
                                         debugCode("Passed looks requirement")
                                         print("You qualify, would you like to apply for this job? Type 'yes' or 'no'")
                                         applyinput = input()
@@ -251,118 +222,115 @@ def showActionMenu(character):
                                                 print("""The company has decided not to move forward in the interview process. 
                                                 Good luck on future attempts buddy""")
                                             else:
-                                                print(
-                                                    "Congratulations! They would like to offer you the job making " + str(
-                                                        openjobs[1].salary * 2) + " a year!")
-                                                character.job = openjobs[1]
+                                                print("Congratulations! They would like to offer you the job making " + str(openjobs[x].salary * 2) + " a year!")
+                                                character.job = openjobs[x]
                                                 character.timeAtJob = 0
                                         if applyinput == "no":
                                             print("You chose not to apply")
+                                    else:
+                                        print("You don't have the required social skills for this position!")
+                                else:
+                                    print("You aren't healthy enough for this position!")
+                            else:
+                                print("You don't have the required intelligence for this position!")
+                        else:
+                            print("You don't have the required education for this position!")
 
+                    if jobinput == "1":
+                        jobDecision(0)
+                    if jobinput == "2":
+                        jobDecision(1)
                     if jobinput == "3":
-                        print("A " + openjobs[2].name + " requires:")
-                        if isinstance(openjobs[2].educationRequired, str):
-                            print("A " + str(openjobs[2].educationRequired))
-                        if openjobs[2].intelligenceRequired != None:
-                            print("Intelligence: " + str(openjobs[2].intelligenceRequired))
-                        if openjobs[2].looksRequired != None:
-                            print("Looks: " + str(openjobs[2].looksRequired))
-                        if openjobs[2].healthRequired != None:
-                            print("Health: " + str(openjobs[2].healthRequired))
-                        if character.education == openjobs[2].educationRequired:
-                            debugCode("Passed education requirement")
-                            if character.intelligence >= openjobs[2].intelligenceRequired:
-                                debugCode("Passed intelligence requirement")
-                                if character.health >= openjobs[2].healthRequired:
-                                    debugCode("Passed health requirement")
-                                    if character.looks >= openjobs[2].looksRequired:
-                                        debugCode("Passed looks requirement")
-                                        print("You qualify, would you like to apply for this job? Type 'yes' or 'no'")
-                                        applyinput = input()
-                                        if applyinput == "yes":
-                                            gotjob = random.randint(1, 3)
-                                            if gotjob == 3:
-                                                print("""The company has decided not to move forward in the interview process. 
-                                                Good luck on future attempts""")
-                                            else:
-                                                print(
-                                                    "Congratulations! They would like to offer you the job making " + str(
-                                                        openjobs[2].salary * 2) + " a year!")
-                                                character.job = openjobs[2]
-                                                character.timeAtJob = 0
-                                        if applyinput == "no":
-                                            print("You chose not to apply")
+                        jobDecision(2)
                     if jobinput == "4":
-                        print("A " + openjobs[3].name + " requires:")
-                        if isinstance(openjobs[3].educationRequired, str):
-                            print("A " + openjobs[3].educationRequired)
-                        if openjobs[3].intelligenceRequired != None:
-                            print("Intelligence: " + str(openjobs[3].intelligenceRequired))
-                        if openjobs[3].looksRequired != None:
-                            print("Looks: " + str(openjobs[3].looksRequired))
-                        if openjobs[3].healthRequired != None:
-                            print("Health: " + str(openjobs[3].healthRequired))
-                        if character.education == openjobs[3].educationRequired:
-                            debugCode("Passed education requirement")
-                            if character.intelligence >= openjobs[3].intelligenceRequired:
-                                debugCode("Passed intelligence requirement")
-                                if character.health >= openjobs[3].healthRequired:
-                                    debugCode("Passed health requirement")
-                                    if character.looks >= openjobs[3].looksRequired:
-                                        debugCode("Passed looks requirement")
-                                        print("You qualify, would you like to apply for this job? Type 'yes' or 'no'")
-                                        applyinput = input()
-                                        if applyinput == "yes":
-                                            gotjob = random.randint(1, 3)
-                                            if gotjob == 3:
-                                                print("""The company has decided not to move forward in the interview process. 
-                                                Good luck on future attempts pal""")
-                                            else:
-                                                print(
-                                                    "Congratulations! They would like to offer you the job making " + str(
-                                                        openjobs[3].salary * 2) + " a year!")
-                                                character.job = openjobs[3]
-                                                character.timeAtJob = 0
-                                        if applyinput == "no":
-                                            print("You chose not to apply")
+                        jobDecision(3)
                     if jobinput == "5":
-                        print("A " + openjobs[4].name + " requires:")
-                        if isinstance(openjobs[4].educationRequired, str):
-                            print("A " + openjobs[4].educationRequired)
-                        if openjobs[4].intelligenceRequired != None:
-                            print("Intelligence: " + str(openjobs[4].intelligenceRequired))
-                        if openjobs[4].looksRequired != None:
-                            print("Looks: " + str(openjobs[4].looksRequired))
-                        if openjobs[4].healthRequired != None:
-                            print("Health: " + str(openjobs[4].healthRequired))
-                        if character.education == openjobs[4].educationRequired:
-                            debugCode("Passed education requirement")
-                            if character.intelligence >= openjobs[4].intelligenceRequired:
-                                debugCode("Passed intelligence requirement")
-                                if character.health >= openjobs[4].healthRequired:
-                                    debugCode("Passed health requirement")
-                                    if character.looks >= openjobs[4].looksRequired:
-                                        debugCode("Passed looks requirement")
-                                        print("You qualify, would you like to apply for this job? Type 'yes' or 'no'")
-                                        applyinput = input()
-                                        if applyinput == "yes":
-                                            gotjob = random.randint(1, 3)
-                                            if gotjob == 3:
-                                                print("""The company has decided not to move forward in the interview process. 
-                                                Good luck on future attempts""")
-                                            else:
-                                                print("Congratulations! They would like to offer you the job making " + str(openjobs[4].salary*2) + " a year!")
-                                                character.job = openjobs[4]
-                                                character.timeAtJob = 0
-                                        if applyinput == "no":
-                                            print("You chose not to apply")
+                        jobDecision(4)
                     break
 
 
             if jobstatus == "work":
-                debugCode("Job status is work")
+                workstatus = ""
+                while workstatus != "exit":
+                    print("Would you like to 1. Ask for a promotion 2. Check how many months you've worked at your current job 3. Quit your job")
+                    workstatus = input()
+                    if workstatus == "1":
+                        idleTime()
+                        print("You walk into your boss' office and sit down with confidence and take a seat")
+                        idleTime()
+                        print("You explain to him that you have been doing alot more than your peers lately and would like to be recognized for it")
+                        if character.job.promotionJob is not None:
+                            if character.timeAtJob >= character.job.promotionJob.promotionTime:
+                                idleTime()
+                                print("'All Right' your boss says. You've been here awhile and you're doing great things. I'm promoting you to "
+                                    + character.job.promotionJob.name + ". Your new salary will be $" + str(character.job.promotionJob.salary) + ".")
+                                character.job = character.job.promotionJob
+                                character.timeAtJob = 0
+                                break
+                            else:
+                                idleTime()
+                                print("'Look, you just haven't been here long enough for me to justify a promotion now.' Your boss says.")
+                                break
+                        else:
+                            print("You are currently in the highest position in this career field!")
+                            break
+                    if workstatus == "2":
+                        print("You have worked at your current job for " + str(character.timeAtJob) + " months.")
+                        idleTime()
+                        break
+                    if workstatus == "3":
+                        print("You walk into your boss' office with a scowl and smirk. You're tired of his shit and this dead end job.")
+                        idleTime()
+                        print("Sir, suck my ass. I quit")
+                        idleTime()
+                        print("Stunned, your boss stands up from his desk with a bewildered look on his face. You promptly walk out, never to return")
+                        character.job = None
+                        character.timeAtJob = 0
+                        idleTime()
+                        break
+
+
         if pinput == "prop":
+            character.useAction()
             print("You have chosen to view property options")
+            debugCode("Generating property list...")
+            availableproperty = Collections.getRandomPropertyList()
+            debugCode("Property list generated...")
+            propinput = ""
+            while propinput != "exit":
+                idleTime()
+                print("Open Jobs: 1." + availableproperty[0].name + " 2." + availableproperty[1].name + " 3." + availableproperty[2].name
+                      + " 4." + availableproperty[3].name + " 5." + availableproperty[4].name)
+                print("Enter 1-5 to view more about these properties, enter 'exit' to exit")
+                propinput = input()
+                def propertyDecision(x):
+                    print("This home is being sold for: $" + str(availableproperty[x].value))
+                    print("The square footage is: " + str(availableproperty[x].sqf))
+                    print("The average bi-annual growth is: " + str(availableproperty[x].growth) + "%")
+                    idleTime()
+                    print("Would you like to purchase this home? Enter 'yes' or 'no'")
+                    buyornot = input()
+                    if buyornot == 'yes':
+                        if character.money >= availableproperty[x].value:
+                            print("Congratulations on your new home!")
+                            character.property = availableproperty[x]
+                        else:
+                            print("I'm sorry Sir, you don't seem to have the funds to purchase this home... Think smaller?")
+                    idleTime()
+
+                if propinput == '1':
+                    propertyDecision(0)
+                if propinput == '2':
+                    propertyDecision(1)
+                if propinput == '3':
+                    propertyDecision(2)
+                if propinput == '4':
+                    propertyDecision(3)
+                if propinput == '5':
+                    propertyDecision(4)
+
+
+
         if pinput == "exit":
             debugCode("I am supposed to exit")
         break
@@ -398,6 +366,7 @@ def intervalCheck(character):
     if debugToggle:
         character.health = 100
         character.intelligence = 100
+        character.happiness = 100
     character.cureAttemptByTurn = 3
     character.calculateHealth()
     character.calculateIntelligence()
@@ -406,6 +375,7 @@ def intervalCheck(character):
     checkJobDetails(character)
     checkPropertyDetails(character)
     character.calculateStatDependencies()
+    character.calculateRelationshipValues()
     character.currentActions = character.actionLimit
     debugCode("Conducting calculations and examinations......")
     if person1.illness != None:
@@ -416,7 +386,7 @@ def intervalCheck(character):
         print("You are currently not enrolled In any education program.")
 
 
-debugCode("testsing debug code...")
+debugCode("testing debug code...")
 
 ##Starting Eninge
 

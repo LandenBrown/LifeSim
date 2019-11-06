@@ -1,8 +1,8 @@
-test = 1
+test = None
 
 
 
-if isinstance(test, str) == False:
+if isinstance(test, NoneType) == False:
     print("Hello in str")
 #if isinstance(test, int):
  #   print("Hello in int")

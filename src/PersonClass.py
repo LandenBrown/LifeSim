@@ -82,25 +82,27 @@ class Person:
         elif len(self.birthDefects) == 2:
             self.healthDecay = self.healthDecay - (self.birthDefects[0] + self.birthDefects[1])
 
+    def calculateRelationshipValues(self):
+        for i in self.relationships:
+            i.calculateRelationship()
+
+
+
     def checkAge(self):
         self.actionLimit = 5
         if self.age >= 5:
-            print("You just started elementary school.")
             self.currenteducation = "Elementary School"
             self.actionLimit = 5
-        elif self.age >= 11:
-            print("You just started middle school")
+        if self.age >= 11:
             self.currenteducation = "Middle School"
             self.actionLimit = 6
-        elif self.age >= 14:
-            print("You just started highschool")
+        if self.age >= 14:
             self.currenteducation = "High School"
             self.actionLimit = 7
-        elif self.age >= 18:
-            print("You just graduated highschool. You can now enroll in college or join the military.")
+        if self.age >= 18:
             self.currenteducation = "Not Enrolled"
             self.actionLimit = 8
-        elif self.age >= 22:
+        if self.age >= 22 and self.education == "Bachelors":
             print("You just finished undergrad school, you can go to grad school.")
 
     def visitDoctorIllness(self):
@@ -187,12 +189,18 @@ class Person:
         if self.happinessDecay < 0:
             self.happinessDecay = 0
         if self.strengthDecay < 0:
-            self.strengthDecay
+            self.strengthDecay = 0
         if self.healthDecay < 0:
-            self.healthDecay
+            self.healthDecay = 0
         if self.intelligenceDecay < 0:
             self.intelligenceDecay = 0
 
-        self.happinessDecay = (self.property.happinessDecay)
+        relationshipHappinessDecay = 0
+
+        if self.relationships[0].relationshipvalue <= 50:
+            relationshipHappinessDecay = relationshipHappinessDecay + 1
+        if self.relationships[1].relationshipvalue <= 50:
+            relationshipHappinessDecay = relationshipHappinessDecay + 1
+
+        self.happinessDecay = (self.property.happinessDecay + relationshipHappinessDecay)
         self.happiness = self.happiness - self.happinessDecay
-        

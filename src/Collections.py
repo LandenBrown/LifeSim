@@ -30,11 +30,17 @@ firstNameCollectionFemale = ["Tiffany", "Tricia", "Beth", "Bethany", "Ashely", "
 
 
 
-#Property Collections
+#Property Collections - Each one of theses needs to be added to the proplist in getRandomPropertyList
 #name, sqf, value, growth, amountOwed, isPaidOff, happinessDecay
 withParents_Property = Property.Property("With Parents", 0, 0, 0, 0, 0, 0)
 homeless_Property = Property.Property("Homeless", 0, 0, 0, 0, True, 5)
-homesteadApartments_Property = Property.Property("Homestead Apartments", 900, 850, 0, 0, 0, 0)
+homesteadApartments_Property = Property.Property("Homestead Apartments - 1 Bedroom", 900, 850, 0, 0, 0, 0)
+homesteadApartments2_Property = Property.Property("Homestead Apartments - 2 Bedroom", 1200, 975, 0, 0, 0, 0)
+hiddenSpringsHouse_Property = Property.Property("Hidden Springs House", 1800, 175000, 1, 175000, False, 0)
+hiddenSpringsHouse2_Property = Property.Property("Hideen Springs PentHouse", 2700, 290000, 1, 290000, False, 0)
+hiddenSpringsHouse3_Property = Property.Property("Hidden Springs Mansion", 5900, 850000, 1, 850000, False, 0)
+blackWaterHouse_Property = Property.Property("Blackwater House", 2000, 200000, 1, 200000, False, 0)
+blackWaterHouse2_Property = Property.Property("Blackwater Manor", 2300, 275000, 1, 275000, False, 0)
 
 
 # illness collections - name, healthDecay, happinessDecay, cureChance, cureCost
@@ -84,37 +90,37 @@ scandalPerson = Relationship.Relationship("", 50, "", "Mistress", None)
 
 
 ########Jobs collections
-#(self, name, salary, educationRequired, intelligenceRequired, looksRequired, healthRequired, promotionJob)
+#(self, name, salary, educationRequired, intelligenceRequired, looksRequired, healthRequired, promotionJob, promotionTime)
 
 #Fast Food jobs
-fastFood_cook = Job.Job("Fast Food Cook", 6000, None, 0, 0, 20, 0, 0)
-fastFood_cashier = Job.Job("Fast Food Cashier", 7500, None, 30, 0, 20, 0, 3)
-fastFood_manager = Job.Job("Fast Food Manager", 12000, None, 38, 0, 20, 0, 4)
-fastFood_owner = Job.Job("Fast Food Restaurant Owner", 20000, None, 0, 0, 20,  0, 8)
+fastFood_cook = Job.Job("Fast Food Cook", 6000, None, 0, 0, 20, None, 0)
+fastFood_cashier = Job.Job("Fast Food Cashier", 7500, None, 30, 0, 20, None, 0)
+fastFood_manager = Job.Job("Fast Food Manager", 12000, None, 38, 0, 20, None, 0)
+fastFood_owner = Job.Job("Fast Food Restaurant Owner", 20000, None, 0, 0, 20,  None, 0)
 
 #Political Jobs
-political_governor = Job.Job("Governor", 35000, "Bachelors in Social Science", 0, 70, 20,  50, 0)
-political_senator = Job.Job("Senator", 55000, "Masters in Social Science", 0, 70, 20,  50, 6)
-political_congressman = Job.Job("Congressman", 80000, "Masters in Social Science", 0, 75, 20, 50, 6)
-politial_potus = Job.Job("President of the United States", 200000, "Masters in Social Science", 0, 90, 40, 50, 10)
+political_governor = Job.Job("Governor", 35000, "Bachelors in Social Science", 0, 70, 20,  None, 0)
+political_senator = Job.Job("Senator", 55000, "Masters in Social Science", 0, 70, 20,  None, 0)
+political_congressman = Job.Job("Congressman", 80000, "Masters in Social Science", 0, 75, 20, None, 0)
+politial_potus = Job.Job("President of the United States", 200000, "Masters in Social Science", 0, 90, 40, None, 0)
 
 #IT Jobs
-it_helpdesk = Job.Job("IT Help Desk", 14000, None, 65, 0, 20,  0, 0)
-it_administrator = Job.Job("IT Administrator", 30000, None, 70, 0, 20,  0, 4)
-it_architect = Job.Job("IT Architect", 50000, None, 70, 0, 20,  0, 4)
-it_manager = Job.Job("IT Manager", 75000, "Bachelors in Computer Science", 70, 0, 20,  0, 8)
-it_ciso = Job.Job("Chief Information Security Officer", 150000, "Masters in Computer Science", 75, 0, 20,  0, 8)
+it_helpdesk = Job.Job("IT Help Desk", 14000, None, 65, 0, 20,  None, 0)
+it_administrator = Job.Job("IT Administrator", 30000, None, 70, 0, 20,  None, 0)
+it_architect = Job.Job("IT Architect", 50000, None, 70, 0, 20,  None, 0)
+it_manager = Job.Job("IT Manager", 75000, "Bachelors in Computer Science", 70, 0, 20,  None, 0)
+it_ciso = Job.Job("Chief Information Security Officer", 150000, "Masters in Computer Science", 75, 0, 20,  None, 0)
 
 #Taxi
-taxi_driver = Job.Job("Taxi Driver", 10000, None, 0, 0, 20,  0, 0)
-taxi_dispatch = Job.Job("Taxi Dispatch", 15000, None, 30, 0, 20,  0, 6)
-taxi_owner = Job.Job("Taxi Company Owner", 45000, None, 40, 0, 20,  0, 10)
+taxi_driver = Job.Job("Taxi Driver", 10000, None, 0, 0, 20,  None, 0)
+taxi_dispatch = Job.Job("Taxi Dispatch", 15000, None, 30, 0, 20,  None, 0)
+taxi_owner = Job.Job("Taxi Company Owner", 45000, None, 40, 0, 20,  None, 0)
 
 #Scientist
-scientist_labtech = Job.Job("Research Lab Tech", 40000, "Bachelors in Chemistry", 60, 0, 50,  0, 0)
-scientist_analyst = Job.Job("Research Analyst", 55000, "Bachelors in Chemistry", 65, 0, 50,  0, 4)
-scientist_labmanager = Job.Job("Research Lab Manager", 95000, "Masters in Chemistry", 70, 0, 50, 0, 5)
-scientist_labowner = Job.Job("Research Lab Owner", 150000, "Masters in Chemistry", 70, 0, 50,  0, 10)
+scientist_labtech = Job.Job("Research Lab Tech", 40000, "Bachelors in Chemistry", 60, 0, 50,  None, 0)
+scientist_analyst = Job.Job("Research Analyst", 55000, "Bachelors in Chemistry", 65, 0, 50,  None, 0)
+scientist_labmanager = Job.Job("Research Lab Manager", 95000, "Masters in Chemistry", 70, 0, 50, None, 0)
+scientist_labowner = Job.Job("Research Lab Owner", 150000, "Masters in Chemistry", 70, 0, 50,  None, 0)
 
 
 def setJobPromotions():
@@ -150,9 +156,22 @@ def getRandomJobList():
     while len(jobarray) != 4:
         randomjob = random.randint(1, jobcount)
         jobarray.append(joblist[randomjob-1])
-        print("Added job")
     jobarray.append(fastFood_cook)
     return jobarray
+
+def getRandomPropertyList():
+    # select 5 jobs, 4 random but always have fast food starter available
+    # aids in "Job Hunt" feeling
+    proplist = [blackWaterHouse2_Property, blackWaterHouse_Property, homesteadApartments_Property,
+                hiddenSpringsHouse_Property, hiddenSpringsHouse2_Property, hiddenSpringsHouse3_Property,
+                homesteadApartments2_Property] # Fill this array with the all properties that could ever be available
+    propcount = len(proplist)
+    proparray = []
+    while len(proparray) != 4:
+        randomprop = random.randint(1, propcount)
+        proparray.append(proplist[randomprop-1])
+    proparray.append(homesteadApartments_Property)   #Edit this to add the permanent property
+    return proparray
 
 
 
